@@ -1,0 +1,212 @@
+[
+    {
+        "id": "f1593d395fc9331f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d182ae08642dfa3f",
+        "type": "mqtt in",
+        "z": "f1593d395fc9331f",
+        "name": "",
+        "topic": " fiap/iot/4SIT/coringao/Sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3e53c91666c019f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "348fd49003df3ce4"
+            ]
+        ]
+    },
+    {
+        "id": "348fd49003df3ce4",
+        "type": "serial out",
+        "z": "f1593d395fc9331f",
+        "name": "COM5",
+        "serial": "4e95c39656966dc4",
+        "x": 490,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "13b219eaa172557c",
+        "type": "serial in",
+        "z": "f1593d395fc9331f",
+        "name": "COM5",
+        "serial": "4e95c39656966dc4",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "7cebe6284d1914a3"
+            ]
+        ]
+    },
+    {
+        "id": "7cebe6284d1914a3",
+        "type": "json",
+        "z": "f1593d395fc9331f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "211f52bccd02d1b3",
+                "10d208562c7797f8",
+                "9c4e21cf5545132b"
+            ]
+        ]
+    },
+    {
+        "id": "211f52bccd02d1b3",
+        "type": "debug",
+        "z": "f1593d395fc9331f",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "10d208562c7797f8",
+        "type": "mqtt out",
+        "z": "f1593d395fc9331f",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "x": 570,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9c4e21cf5545132b",
+        "type": "change",
+        "z": "f1593d395fc9331f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Distancia",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 80,
+        "wires": [
+            [
+                "f66c4845f26740e8"
+            ]
+        ]
+    },
+    {
+        "id": "f66c4845f26740e8",
+        "type": "ui_gauge",
+        "z": "f1593d395fc9331f",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00B500",
+            "#E6E600",
+            "#CA3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 610,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3e53c91666c019f7",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4e95c39656966dc4",
+        "type": "serial-port",
+        "name": "COM5",
+        "serialport": "COM5",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    }
+]
